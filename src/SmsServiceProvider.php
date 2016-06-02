@@ -7,17 +7,10 @@
  */
 namespace Bileji\Support;
 
+use Bileji\Support\Sms\Factory;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Lumen\Application as LumenApplication;
 use Illuminate\Foundation\Application as LaravelApplication;
-
-class Test
-{
-    public function hello()
-    {
-        return "hello world you";
-    }
-}
 
 class SmsServiceProvider extends ServiceProvider
 {
@@ -48,7 +41,7 @@ class SmsServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('sms', function () {
-            return new Test();
+            return (new Factory(config('sms')))->get();
         });
     }
 }
