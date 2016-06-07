@@ -1,0 +1,35 @@
+{
+    "name" : "bileji/sms",
+    "description" : "sms service...",
+    "keywords" : [
+        "php",
+        "laravel",
+        "sms"
+    ],
+    "license" : "MIT",
+    "type" : "library",
+    "authors" : [
+        {
+            "name" : "shuc324",
+            "email" : "shuc324@gmail.com"
+        }
+    ],
+    "require" : {
+        "php" : ">=5.5.9",
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "require-dev" : {
+        "phpunit/phpunit" : "~4.0",
+        "illuminate/support": "~5.1"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "Bileji\\Support\\" : "src/"
+        }
+    },
+    "autoload-dev" : {
+        "classmap" : [
+            "tests/"
+        ]
+    }
+}
