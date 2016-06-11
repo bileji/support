@@ -40,7 +40,7 @@ class AsyncServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('gearman', function () {
+        $this->app->singleton('async', function () {
             return new Async();
         });
     }
