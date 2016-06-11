@@ -29,7 +29,8 @@ class Async
             if (false == $this->gearManClient) {
                 return false;
             }
-            $this->gearManClient->doBackground(ucfirst(substr($name, 3)), json_encode($arguments));
+            $workload = ['method' => array_shift($arguments), 'payload' => $arguments];
+            $this->gearManClient->doBackground(ucfirst(substr($name, 3)), json_encode($workload));
             return $this->gearManClient->returnCode() != GEARMAN_SUCCESS ? false : true;
         } else {
             return false;
