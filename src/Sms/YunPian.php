@@ -29,11 +29,11 @@ class YunPian extends SmsAbstract implements SmsInterface
     {
         try {
             $this->content = $this->post($this->single_send, $this->postOptions($phone, $message))->getBody()->getContents();
+            $this->code = array_column(json_decode($this->content, true), 'code');
         } catch (Exception $e) {
+            $this->code = null;
             $this->content = $e->getMessage();
         }
-
-        $this->code = array_column(json_decode($this->content, true), 'code');
 
         return $this;
     }
