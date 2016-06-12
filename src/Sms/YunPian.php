@@ -8,7 +8,7 @@
 namespace Bileji\Support\Sms;
 
 use Closure;
-use Mockery\CountValidator\Exception;
+use Exception;
 
 class YunPian extends SmsAbstract implements SmsInterface
 {
@@ -16,7 +16,7 @@ class YunPian extends SmsAbstract implements SmsInterface
     public function __construct($config)
     {
         $this->api_key = $config['api_key'];
-        $this->single_send = 'https://sms.yunpian.com/v2/sms/single_send.json';
+        $this->single_send = 'https://sms.yunpian.com/v1/sms/send.json';
     }
 
     private function postOptions($phone, $message)
