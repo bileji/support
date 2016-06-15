@@ -30,7 +30,7 @@ class Async
                 return false;
             }
             $workload = ['method' => array_shift($arguments), 'payload' => $arguments];
-            $this->gearManClient->doBackground(ucfirst(substr($name, 3)), json_encode($workload));
+            $this->gearManClient->doBackground(ucfirst(substr($name, 3) . 'Worker'), json_encode($workload));
             return $this->gearManClient->returnCode() != GEARMAN_SUCCESS ? false : true;
         } else {
             return false;
